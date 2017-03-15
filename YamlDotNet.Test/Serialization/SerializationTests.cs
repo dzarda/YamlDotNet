@@ -106,6 +106,14 @@ namespace YamlDotNet.Test.Serialization
         }
 
         [Fact]
+        public void SerializeBooleanFalse()
+        {
+            var result = Serializer.Serialize(new { FalseAttr = false });
+
+            result.Should().Be("FalseAttr: false\n".NormalizeNewLines());
+        }
+
+        [Fact]
         public void DeserializeScalarZero()
         {
             var result = Deserializer.Deserialize<int>(UsingReaderFor("0"));
